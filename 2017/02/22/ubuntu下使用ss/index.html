@@ -130,11 +130,7 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">安全工具</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">linux</a>
+        <a href="javascript:" class="color3">渗透</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -142,7 +138,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">渗透</a>
+        <a href="javascript:" class="color1">linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">安全工具</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -156,35 +156,11 @@
     <nav id="title-list-nav">
         
         <a  class=""
-           href="/2017/02/22/linux下nessus离线更新/"
-           data-tag="安全工具,linux,零碎知识"
-           data-author="" >
-            <span class="post-title" title="linux下nessus离线更新">linux下nessus离线更新</span>
-            <span class="post-date" title="2017-02-22 14:35:21">2017/02/22</span>
-        </a>
-        
-        <a  class=""
-           href="/2017/02/22/ubuntu下使用ss/"
-           data-tag="linux"
-           data-author="" >
-            <span class="post-title" title="ubuntu下使用ss">ubuntu下使用ss</span>
-            <span class="post-date" title="2017-02-22 14:40:46">2017/02/22</span>
-        </a>
-        
-        <a  class=""
            href="/2016/12/28/minikatz绕过杀软/"
-           data-tag="零碎知识,渗透"
+           data-tag="渗透,零碎知识"
            data-author="" >
             <span class="post-title" title="minikatz">minikatz</span>
             <span class="post-date" title="2016-12-28 11:18:07">2016/12/28</span>
-        </a>
-        
-        <a  class=""
-           href="/2016/12/29/mysql显错注入/"
-           data-tag="零碎知识"
-           data-author="" >
-            <span class="post-title" title="mysql显错注入">mysql显错注入</span>
-            <span class="post-date" title="2016-12-29 22:55:39">2016/12/29</span>
         </a>
         
         <a  class=""
@@ -196,6 +172,14 @@
         </a>
         
         <a  class=""
+           href="/2017/02/22/linux下nessus离线更新/"
+           data-tag="零碎知识,linux,安全工具"
+           data-author="" >
+            <span class="post-title" title="linux下nessus离线更新">linux下nessus离线更新</span>
+            <span class="post-date" title="2017-02-22 14:35:21">2017/02/22</span>
+        </a>
+        
+        <a  class=""
            href="/2017/01/20/ubuntu搭建ss服务/"
            data-tag="建站"
            data-author="" >
@@ -204,11 +188,27 @@
         </a>
         
         <a  class=""
+           href="/2017/02/22/ubuntu下使用ss/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="ubuntu下使用ss">ubuntu下使用ss</span>
+            <span class="post-date" title="2017-02-22 14:40:46">2017/02/22</span>
+        </a>
+        
+        <a  class=""
            href="/2016/12/15/使用hexo-Github搭建个人博客教程/"
            data-tag="建站"
            data-author="" >
             <span class="post-title" title="使用hexo+Github搭建个人博客教程">使用hexo+Github搭建个人博客教程</span>
             <span class="post-date" title="2016-12-15 09:36:19">2016/12/15</span>
+        </a>
+        
+        <a  class=""
+           href="/2016/12/29/mysql显错注入/"
+           data-tag="零碎知识"
+           data-author="" >
+            <span class="post-title" title="mysql显错注入">mysql显错注入</span>
+            <span class="post-date" title="2016-12-29 22:55:39">2016/12/29</span>
         </a>
         
     </nav>
@@ -373,7 +373,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#安全工具','#linux','#零碎知识','#渗透','#建站',],
+            'data': ['#渗透','#零碎知识','#linux','#安全工具','#建站',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
