@@ -49,7 +49,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>ubuntu搭建ss服务 - Noaccess</title>
+<title>ss的搭建与使用 - Noaccess</title>
 
 <meta name="keywords" content="">
 
@@ -122,7 +122,23 @@
     <ul>
         <li><a href="/">最新</a></li>
         
-        
+            
+                <li class="">
+                    <a href="/categories/hack" data-name="渗透">渗透</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/other" data-name="杂乱">杂乱</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/code" data-name="编程">编程</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/tools" data-name="工具">工具</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -170,14 +186,14 @@
                     <img width="48" src="" alt="avatar"/>
                 </a>
                 <p><span class="label">作者</span>
-                    <a href="" target="_blank"></a>
+                    <a href="" target="_blank">Noaccess</a>
                     <span title="最后编辑于2017-01-20">2017-01-20</span>
                 </p>
                 <p></p>
             </div>
-            <h2 class="post-title">ubuntu搭建ss服务</h2>
+            <h2 class="post-title">ss的搭建与使用</h2>
             <div class="post-meta">
-                本文总共641个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共2086个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -191,6 +207,24 @@
 <p>创建完毕后，赋予文件权限：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 /etc/shadowsocks.json</span><br><span class="line">sudo ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure></p>
 <h3 id="3-配置开机自启"><a href="#3-配置开机自启" class="headerlink" title="3.配置开机自启"></a>3.配置开机自启</h3><p>编辑 /etc/rc.local 文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/rc.local</span><br></pre></td></tr></table></figure></p>
 <p>在 exit 0 这一行的上边加入如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/ssserver –c /etc/shadowsocks.json</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-linux下使用客户端"><a href="#4-linux下使用客户端" class="headerlink" title="4.linux下使用客户端"></a>4.linux下使用客户端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install shadowsocks</span><br></pre></td></tr></table></figure>
+<p>新建个文件shadowsocks.json<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">"server"</span>:<span class="string">"11.22.33.44"</span>,</span><br><span class="line"><span class="string">"server_port"</span>:50003,</span><br><span class="line"><span class="string">"local_port"</span>:1080,</span><br><span class="line"><span class="string">"password"</span>:<span class="string">"123456"</span>,</span><br><span class="line"><span class="string">"timeout"</span>:600,</span><br><span class="line"><span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<!--more-->
+<p>通过sslocal -c调用</p>
+<h3 id="开机后台自动运行ss"><a href="#开机后台自动运行ss" class="headerlink" title="开机后台自动运行ss"></a>开机后台自动运行ss</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install supervisor</span><br></pre></td></tr></table></figure>
+<p>安装好后我们可以在/etc/supervisor/目录下找到supervisor.conf配置文件，我们可以用以下命令来编辑</p>
+<p>sudo gedit /etc/supervisor/supervisor.conf<br>在这个文件的最后加上以下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[program:shadowsocks]</span><br><span class="line"><span class="built_in">command</span>=sslocal -c /home/mudao/shadowsocks.json</span><br><span class="line">autostart=<span class="literal">true</span></span><br><span class="line">autorestart=<span class="literal">true</span></span><br><span class="line">user=root</span><br><span class="line">log_stderr=<span class="literal">true</span></span><br><span class="line">logfile=/var/<span class="built_in">log</span>/shadowsocks.log</span><br></pre></td></tr></table></figure>
+<p>当然在16.04里你可以直接在/etc/supervisor/conf.d/下新建个文件比如ss.conf然后加入上面内容。</p>
+<p>command = 这里json文件的路径根据你的文件路径来填写。确认无误后记得保存。sslocal 和ssserver这两个命令是被存在 /usr/local/bin/下面的，我们要拷贝一份命令文件到/bin</p>
+<p>sudo cp /usr/local/bin/sslocal /bin  (注意空格)<br>注意：16.04 命令在 /usr/bin/下所以就用<br>sudo cp /usr/bin/sslocal /bin  (注意空格)<br>打开终端输入sudo service supervisor restart 然后去打开浏览器看看可不可以继续代理上网。你也可以用ps -ef|grep sslocal命令查看sslocal是否在运行。</p>
+<p>这个时候我们需要在/etc下编辑一个叫rc.local的文件 ，让supervisor开机启动。</p>
+<p>sudo gedit /etc/rc.local </p>
+<p>在这个配置文件的exit 0前面一行加上 service supervisor start 保存。看你是否配置成功你可以在现在关机重启之后直接打开浏览器看是否代理成功。</p>
+<p>GUI程序</p>
+<p>我个人比较喜欢这个就是安装有点麻烦，使用很方便。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install shadowsocks-qt5</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-配置浏览器"><a href="#5-配置浏览器" class="headerlink" title="5.配置浏览器"></a>5.配置浏览器</h3><p>火狐插件推荐pan 个人觉得比FoxyProxy好用<br><a href="https://addons.mozilla.org/zh-CN/firefox/addon/pan/?src=api" target="_blank" rel="noopener">https://addons.mozilla.org/zh-CN/firefox/addon/pan/?src=api</a></p>
+<p>谷歌的话是必须要安装插件才能使用的<br>推荐SwitchyOmega <a href="https://github.com/FelisCatus/SwitchyOmega/releases/" target="_blank" rel="noopener">https://github.com/FelisCatus/SwitchyOmega/releases/</a> （这个是chrome的）然后浏览器地址打开chrome://extensions/，将下载的插件托进去安装。</p>
 <p><span id="busuanzi_container_page_pv"><br>  本文总阅读量<span id="busuanzi_value_page_pv"></span>次<br></span></p>
 
         </div>
