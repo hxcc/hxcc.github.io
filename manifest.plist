@@ -29,13 +29,13 @@
             <key>metadata</key>  
             <dict>  
                 <key>bundle-identifier</key>  
-                <string>com.jzsj.thirtysix</string>  
+                <string>com.cydia.Extender</string>  
                 <key>bundle-version</key>  
                 <string>1.0</string>  
                 <key>kind</key>  
                 <string>software</string>  
                 <key>title</key>  
-                <string>三十六计</string>  
+                <string>Extender</string>  
             </dict>  
         </dict>  
     </array>  
