@@ -1,0 +1,19 @@
+<head>
+<title>自动弹出窗口</title>
+</head>
+<script language="JavaScript">
+<!--
+var gt = unescape('%3e');
+var popup = null;
+var over = "Launch Pop-up Navigator";
+popup = window.open('', 'popupnav', 'width=200,height=170,resizable=1,scrollbars=auto');
+if (popup != null) {
+if (popup.opener == null) {
+popup.opener = self;
+}
+popup.location.href = 'http://www.baidu.com';
+}
+// --></script>
+<body>
+</body>
+</html>
