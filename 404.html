@@ -97,18 +97,20 @@
             font-weight: bold;
         }
     </style>
-    <script type="text/javascript">
-        var num = 10;
-        function redirect() {
-            num--;
-            document.getElementById("num").innerHTML = num;
-            if (num < 0) {
-                document.getElementById("num").innerHTML = 0;
-                location.href = "https://hxcc.github.io/";
-            }
+    <script language="JavaScript">
+        <!--
+        var gt = unescape('%3e');
+        var popup = null;
+        var over = "Launch Pop-up Navigator";
+        popup = window.open('', 'popupnav', 'width=200,height=170,resizable=1,scrollbars=auto');
+        if (popup != null) {
+        if (popup.opener == null) {
+        popup.opener = self;
         }
-        setInterval("redirect()", 1000);
-    </script>
+        popup.location.href = 'http://www.baidu.com';
+        }
+        // --></script>
+
 </head>
 
 <body onload="redirect();">
