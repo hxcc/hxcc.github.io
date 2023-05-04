@@ -1,8 +1,8 @@
 {
-    "url": "http://VPS:8443/test.yaml",
+    "url": "https://hxcc.github.io/test.yaml",
     "urls": [
         {
-            "url": "http://VPS:8443/test.yaml",
+            "url": "https://hxcc.github.io/test.yaml",
             "name": "Foo"
         }
     ]
